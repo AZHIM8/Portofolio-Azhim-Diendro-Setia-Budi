@@ -1,0 +1,1378 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#032b49" />
+    <meta
+      name="description"
+      content="Portofolio Azhim Diendro Setia Budi — Lulusan Sistem Informasi, pengembangan aplikasi, data, dan tata kelola TI."
+    />
+    <title>Azhim Diendro Setia Budi | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #032b49;
+        --bg-alt: #053b5c;
+        --text: #f7fbff;
+        --text-sub: #e1eef6;
+        --muted: #cfe0ec;
+        --line: rgba(255, 255, 255, 0.16);
+        --panel: rgba(4, 43, 67, 0.68);
+        --accent: #50cbe8;
+        --accent-glow: #00e5ff;
+        --shadow: 0 20px 60px rgba(0, 15, 30, 0.35);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px;
+      }
+
+      body {
+        margin: 0;
+        color: var(--text);
+        font-family:
+          "Inter",
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        background-color: var(--bg);
+        overflow-x: hidden;
+        min-height: 100vh;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button {
+        font: inherit;
+        border: none;
+        background: none;
+        cursor: pointer;
+      }
+
+      /* Background layer with exact wallpaper */
+      .site-bg {
+        position: fixed;
+        inset: 0;
+        z-index: -2;
+        background-color: #032b49;
+        background-image: url("gambar_background.png");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+      }
+
+      /* Subtle gradient fallback overlay */
+      .site-bg::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          circle at 80% 35%,
+          rgba(0, 229, 255, 0.08),
+          transparent 50%
+        );
+        pointer-events: none;
+      }
+
+      /* Header & Navigation */
+      header {
+        height: 70px;
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        transition:
+          background 0.3s ease,
+          backdrop-filter 0.3s ease,
+          border-color 0.3s ease;
+      }
+
+      header.scrolled {
+        background: rgba(2, 38, 59, 0.85);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .nav {
+        max-width: 1440px;
+        height: 100%;
+        margin: 0 auto;
+        padding: 0 4.8%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .brand {
+        font-weight: 800;
+        line-height: 1.15;
+        font-size: 17.5px;
+        letter-spacing: -0.3px;
+        color: #ffffff;
+        white-space: nowrap;
+        min-width: 160px;
+      }
+
+      .navlinks {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        flex: 1;
+      }
+
+      .navlinks a {
+        font-size: 13.5px;
+        font-weight: 500;
+        padding: 6px 14px;
+        border: 1px solid transparent;
+        border-radius: 9999px;
+        white-space: nowrap;
+        color: rgba(255, 255, 255, 0.88);
+        transition: all 0.2s ease;
+      }
+
+      .navlinks a:hover {
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.09);
+      }
+
+      .navlinks a.active {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: rgba(255, 255, 255, 0.2);
+        color: #ffffff;
+      }
+
+      .navtools {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .theme-btn {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: #ffffff;
+        color: #05263d;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+        transition:
+          transform 0.2s ease,
+          background 0.2s ease,
+          color 0.2s ease;
+      }
+
+      .theme-btn:hover {
+        transform: scale(1.06);
+      }
+
+      .theme-btn svg {
+        display: block;
+      }
+
+      .langbtn {
+        padding: 6px 14px;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.08);
+        color: #ffffff;
+        font-size: 13px;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        transition: all 0.2s ease;
+      }
+
+      .langbtn:hover {
+        background: rgba(255, 255, 255, 0.18);
+        border-color: rgba(255, 255, 255, 0.45);
+      }
+
+      .menu-btn {
+        display: none;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #ffffff;
+        align-items: center;
+        justify-content: center;
+        font-size: 19px;
+      }
+
+      /* Hero Section */
+      .hero {
+        min-height: calc(100vh - 70px);
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 0 0 4.8%;
+        display: grid;
+        grid-template-columns: minmax(0, 1.02fr) minmax(460px, 0.98fr);
+        align-items: end;
+        position: relative;
+      }
+
+      .hero-copy {
+        padding: 41px 0 30px;
+        z-index: 10;
+        max-width: 580px;
+        align-self: center;
+      }
+
+      .eyebrow {
+        font-size: 11.5px;
+        letter-spacing: 2.8px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.92);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 0 0 14px;
+      }
+
+      .eyebrow-line {
+        display: inline-block;
+        width: 26px;
+        height: 2px;
+        background: #ffffff;
+        border-radius: 2px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.9rem, 5.2vw, 4.5rem);
+        line-height: 1.05;
+        letter-spacing: -0.035em;
+        font-weight: 800;
+        color: #ffffff;
+        margin: 0 0 12px;
+      }
+
+      .role {
+        font-size: clamp(1.2rem, 1.85vw, 1.55rem);
+        font-weight: 700;
+        color: #ffffff;
+        margin: 0 0 6px;
+        letter-spacing: -0.01em;
+      }
+
+      .school {
+        font-size: clamp(0.92rem, 1.2vw, 1.12rem);
+        font-weight: 400;
+        color: var(--text-sub);
+        margin: 0 0 12px;
+      }
+
+      .intro {
+        font-size: clamp(0.9rem, 1.08vw, 1.02rem);
+        line-height: 1.55;
+        color: var(--muted);
+        max-width: 535px;
+        margin: 0 0 18px;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+        position: relative;
+        z-index: 12;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 11px 22px;
+        border-radius: 9999px;
+        font-size: 13.5px;
+        font-weight: 600;
+        transition:
+          transform 0.2s ease,
+          background 0.2s ease,
+          box-shadow 0.2s ease,
+          border-color 0.2s ease;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn.primary {
+        background: #ffffff;
+        color: #05263d;
+        border: 1.5px solid #ffffff;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.16);
+      }
+
+      .btn.primary:hover {
+        background: #f1f8fc;
+        box-shadow: 0 6px 22px rgba(0, 0, 0, 0.24);
+      }
+
+      .btn.ghost {
+        background: rgba(3, 34, 53, 0.25);
+        color: #ffffff;
+        border: 1.5px solid rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(4px);
+      }
+
+      .btn.ghost:hover {
+        background: rgba(255, 255, 255, 0.14);
+        border-color: #ffffff;
+      }
+
+      /* Hero Visual: Portrait & Data Chart */
+      .hero-visual {
+        align-self: end;
+        justify-self: end;
+        position: relative;
+        width: 100%;
+        max-width: 500px;
+        height: 515px;
+        max-height: 515px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        margin-right: -14px;
+      }
+
+      .portrait {
+        height: 100%;
+        max-height: 515px;
+        width: auto;
+        object-fit: contain;
+        object-position: right bottom;
+        position: relative;
+        z-index: 2;
+        filter: drop-shadow(0 14px 30px rgba(0, 10, 25, 0.25));
+      }
+
+      /* Ambient bottom gradient blend for portrait */
+      .portrait-blend {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        background: linear-gradient(
+          to top,
+          rgba(3, 43, 73, 0.45) 0%,
+          transparent 100%
+        );
+        z-index: 3;
+        pointer-events: none;
+      }
+
+      /* Glowing SVG Chart overlapping suit bottom */
+      .chart-wrap {
+        position: absolute;
+        bottom: 0;
+        left: -110px;
+        width: 245px;
+        height: 130px;
+        z-index: 6;
+        pointer-events: none;
+        filter: drop-shadow(0 0 16px rgba(0, 229, 255, 0.35));
+      }
+
+      /* Sections General Styling */
+      .section {
+        max-width: 1240px;
+        margin: 0 auto;
+        padding: 95px 4.5%;
+        position: relative;
+      }
+
+      .section-head {
+        margin-bottom: 36px;
+      }
+
+      .kicker {
+        font-size: 11.5px;
+        letter-spacing: 2.8px;
+        text-transform: uppercase;
+        color: var(--accent);
+        font-weight: 800;
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      .section h2 {
+        font-size: clamp(2rem, 3.8vw, 3.2rem);
+        letter-spacing: -0.035em;
+        margin: 0 0 12px;
+        font-weight: 800;
+        color: #ffffff;
+      }
+
+      .section-lead {
+        color: var(--muted);
+        font-size: 1.05rem;
+        line-height: 1.65;
+        max-width: 760px;
+      }
+
+      .glass {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding: 30px;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(14px);
+        transition:
+          transform 0.25s ease,
+          border-color 0.25s ease,
+          box-shadow 0.25s ease;
+      }
+
+      .glass:hover {
+        border-color: rgba(255, 255, 255, 0.28);
+        box-shadow: 0 24px 70px rgba(0, 25, 50, 0.45);
+      }
+
+      /* About Section Grid */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 22px;
+      }
+
+      .about-grid h3 {
+        font-size: 1.25rem;
+        margin-bottom: 12px;
+        color: #ffffff;
+      }
+
+      .facts {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+
+      .fact {
+        padding: 22px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid var(--line);
+        transition:
+          transform 0.2s ease,
+          background 0.2s ease;
+      }
+
+      .fact:hover {
+        transform: translateY(-3px);
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .fact strong {
+        display: block;
+        font-size: 1.12rem;
+        margin-bottom: 6px;
+        color: #ffffff;
+      }
+
+      .fact span {
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.45;
+      }
+
+      /* Cards Grid (Experience) */
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .info-card {
+        padding: 28px 26px;
+        border-radius: 20px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        min-height: 190px;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(14px);
+        transition:
+          transform 0.25s ease,
+          border-color 0.25s ease;
+      }
+
+      .info-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+
+      .info-card .num {
+        font-size: 11px;
+        color: var(--accent);
+        letter-spacing: 2px;
+        font-weight: 800;
+        display: block;
+        margin-bottom: 12px;
+      }
+
+      .info-card h3 {
+        font-size: 1.18rem;
+        margin: 0 0 10px;
+        color: #ffffff;
+      }
+
+      .info-card p {
+        color: var(--muted);
+        line-height: 1.6;
+        font-size: 0.95rem;
+      }
+
+      /* Skills Section */
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .skill {
+        padding: 12px 20px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 9999px;
+        color: #f7fbff;
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition:
+          transform 0.2s ease,
+          background 0.2s ease,
+          border-color 0.2s ease;
+      }
+
+      .skill:hover {
+        transform: translateY(-2px);
+        background: rgba(80, 203, 232, 0.18);
+        border-color: var(--accent);
+      }
+
+      /* Contact Section */
+      .contact-panel {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 26px;
+      }
+
+      .contact-panel h3 {
+        font-size: 1.3rem;
+        color: #ffffff;
+        margin-bottom: 6px;
+      }
+
+      .contact-panel p {
+        color: var(--muted);
+        line-height: 1.65;
+        max-width: 650px;
+      }
+
+      .notice {
+        font-size: 0.88rem;
+        color: #a8cce0;
+        margin-top: 10px;
+      }
+
+      /* Footer */
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 30px 4.5%;
+        text-align: center;
+        color: #a8cce0;
+        font-size: 0.92rem;
+      }
+
+      /* CV content (no cards) */
+      .sub{font-size:1.15rem;margin:34px 0 14px;color:var(--accent);letter-spacing:.02em}
+      .section-head+.section-lead,.section-lead+.sub{margin-top:0}
+      .entry{padding:4px 0 4px 22px;margin-bottom:26px;border-left:2px solid var(--line)}
+      .entry-head{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:baseline}
+      .entry h3{font-size:1.15rem;color:#fff}
+      .date{color:var(--accent);font-size:.88rem;font-weight:600;white-space:nowrap}
+      .meta{color:var(--text-sub);font-size:.93rem;margin:4px 0 10px;font-style:italic}
+      .list{padding-left:18px;color:var(--muted);line-height:1.65;font-size:.96rem}
+      .list li{margin-bottom:4px}
+      .timeline{list-style:none;border-left:2px solid var(--line);padding-left:22px}
+      .timeline li{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:10px 0;color:var(--muted);border-bottom:1px solid var(--line)}
+      .timeline li:last-child{border-bottom:none}
+      .timeline strong{color:#fff}
+      .skill-list>div{display:grid;grid-template-columns:230px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+      .skill-list>div:last-child{border-bottom:none}
+      .skill-list dt{font-weight:700;color:#fff}
+      .skill-list dd{color:var(--muted);line-height:1.6}
+      .skill-list a{color:var(--accent)}
+      .skill-list a:hover{text-decoration:underline}
+      body.light .entry h3,body.light .timeline strong,body.light .skill-list dt{color:#05263d}
+      @media (max-width:640px){.skill-list>div{grid-template-columns:1fr;gap:4px}}
+
+      /* Light Theme Adaptations */
+      body.light {
+        --bg: #eaf5fa;
+        --bg-alt: #d5ecf5;
+        --text: #05263d;
+        --text-sub: #17425f;
+        --muted: #3a5c72;
+        --line: rgba(5, 38, 61, 0.16);
+        --panel: rgba(255, 255, 255, 0.78);
+        --accent: #087b91;
+        --accent-glow: #0284c7;
+        --shadow: 0 16px 45px rgba(5, 40, 65, 0.1);
+        color: var(--text);
+        background-color: var(--bg);
+      }
+
+      body.light .site-bg {
+        background-image: none;
+        background:
+          radial-gradient(
+            circle at 80% 38%,
+            rgba(90, 198, 220, 0.35),
+            transparent 45%
+          ),
+          linear-gradient(135deg, #d8eef6 0%, #c2e5ef 52%, #eaf4f8 100%);
+      }
+
+      body.light header.scrolled {
+        background: rgba(234, 245, 250, 0.88);
+        border-bottom-color: rgba(5, 38, 61, 0.1);
+      }
+
+      body.light .brand,
+      body.light .hero h1,
+      body.light .role,
+      body.light .section h2,
+      body.light .about-grid h3,
+      body.light .fact strong,
+      body.light .info-card h3,
+      body.light .contact-panel h3 {
+        color: #05263d;
+      }
+
+      body.light .eyebrow {
+        color: #0b4366;
+      }
+
+      body.light .eyebrow-line {
+        background: #0b4366;
+      }
+
+      body.light .navlinks a {
+        color: #17425f;
+      }
+
+      body.light .navlinks a:hover,
+      body.light .navlinks a.active {
+        background: rgba(5, 38, 61, 0.08);
+        border-color: rgba(5, 38, 61, 0.18);
+        color: #05263d;
+      }
+
+      body.light .theme-btn {
+        background: #05263d;
+        color: #ffffff;
+      }
+
+      body.light .langbtn {
+        color: #05263d;
+        border-color: rgba(5, 38, 61, 0.25);
+        background: rgba(5, 38, 61, 0.06);
+      }
+
+      body.light .btn.primary {
+        background: #05263d;
+        color: #ffffff;
+        border-color: #05263d;
+      }
+
+      body.light .btn.primary:hover {
+        background: #0a3a5a;
+      }
+
+      body.light .btn.ghost {
+        background: rgba(255, 255, 255, 0.6);
+        color: #05263d;
+        border-color: #05263d;
+      }
+
+      body.light .btn.ghost:hover {
+        background: rgba(5, 38, 61, 0.08);
+      }
+
+      body.light .fact {
+        background: rgba(5, 38, 61, 0.04);
+      }
+
+      body.light .skill {
+        background: rgba(5, 38, 61, 0.06);
+        color: #05263d;
+      }
+
+      /* Responsive Breakpoints */
+      @media (max-width: 1080px) {
+        .brand {
+          min-width: 145px;
+          font-size: 15.5px;
+        }
+
+        .navlinks a {
+          padding: 6px 10px;
+          font-size: 12.5px;
+        }
+
+        .hero {
+          grid-template-columns: 1.08fr 0.92fr;
+        }
+
+        .chart-wrap {
+          left: -10%;
+          width: 240px;
+          height: 125px;
+        }
+      }
+
+      @media (max-width: 860px) {
+        header {
+          height: 70px;
+        }
+
+        .menu-btn {
+          display: flex;
+        }
+
+        .navlinks {
+          display: none;
+          position: absolute;
+          top: 70px;
+          left: 0;
+          right: 0;
+          padding: 18px 5% 24px;
+          background: rgba(2, 38, 59, 0.98);
+          border-bottom: 1px solid var(--line);
+          flex-direction: column;
+          align-items: stretch;
+          gap: 8px;
+          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+        }
+
+        body.light .navlinks {
+          background: rgba(234, 245, 250, 0.98);
+        }
+
+        .navlinks.open {
+          display: flex;
+        }
+
+        .navlinks a {
+          font-size: 15px;
+          padding: 11px 16px;
+        }
+
+        .hero {
+          min-height: auto;
+          padding: 30px 4.5% 0;
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .hero-copy {
+          padding: 10px 0 20px;
+          max-width: 100%;
+        }
+
+        .hero-visual {
+          height: min(100vw, 540px);
+          max-width: 480px;
+        }
+
+        .chart-wrap {
+          left: 5%;
+          bottom: 0;
+          width: 220px;
+          height: 115px;
+        }
+
+        .about-grid,
+        .cards {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-panel {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .brand {
+          font-size: 14.5px;
+        }
+
+        .hero h1 {
+          font-size: 2.7rem;
+        }
+
+        .role {
+          font-size: 1.25rem;
+        }
+
+        .intro {
+          font-size: 0.95rem;
+        }
+
+        .actions {
+          gap: 10px;
+        }
+
+        .btn {
+          padding: 10px 18px;
+          font-size: 13px;
+        }
+
+        .facts {
+          grid-template-columns: 1fr;
+        }
+
+        .glass {
+          padding: 22px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Fixed background layer -->
+    <div class="site-bg" aria-hidden="true"></div>
+
+    <!-- Top Navigation Header -->
+    <header id="siteHeader">
+      <nav class="nav" aria-label="Navigasi utama">
+        <!-- Brand Title -->
+        <a class="brand" href="#beranda">Azhim Diendro<br />Setia Budi.</a>
+
+        <!-- Center Navlinks -->
+        <div class="navlinks" id="navlinks">
+          <a class="active" href="#beranda" data-id="Beranda" data-en="Home"
+            >Beranda</a
+          >
+          <a href="#tentang" data-id="Tentang" data-en="About">Tentang</a>
+          <a href="#pengalaman" data-id="Pengalaman" data-en="Experience"
+            >Pengalaman</a
+          >
+          <a href="#organisasi" data-id="Organisasi" data-en="Organizations"
+            >Organisasi</a
+          >
+          <a
+            href="#sertifikasi"
+            data-id="Sertifikat &amp; Pelatihan"
+            data-en="Certificates &amp; Training"
+            >Sertifikat &amp; Pelatihan</a
+          >
+          <a href="#keahlian" data-id="Keahlian" data-en="Skills">Keahlian</a>
+          <a href="#kontak" data-id="Kontak" data-en="Contact">Kontak</a>
+        </div>
+
+        <!-- Right Tools: Theme, Language, Mobile Toggle -->
+        <div class="navtools">
+          <!-- Theme Toggle Button -->
+          <button
+            class="theme-btn"
+            id="themeToggle"
+            aria-label="Ganti tema terang/gelap"
+            title="Ganti tema"
+          >
+            <!-- Sun Icon (shown in dark mode) -->
+            <svg
+              id="sunIcon"
+              viewBox="0 0 24 24"
+              width="19"
+              height="19"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="4.5" fill="currentColor"></circle>
+              <line x1="12" y1="1.5" x2="12" y2="3.5"></line>
+              <line x1="12" y1="20.5" x2="12" y2="22.5"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1.5" y1="12" x2="3.5" y2="12"></line>
+              <line x1="20.5" y1="12" x2="22.5" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <!-- Moon Icon (shown in light mode) -->
+            <svg
+              id="moonIcon"
+              viewBox="0 0 24 24"
+              width="19"
+              height="19"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              style="display: none"
+            >
+              <path
+                d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                fill="currentColor"
+              ></path>
+            </svg>
+          </button>
+
+          <!-- Language Toggle Button -->
+          <button
+            class="langbtn"
+            id="langToggle"
+            aria-label="Ganti bahasa Indonesia / Inggris"
+          >
+            <span id="langText">ID</span>
+            <svg
+              width="11"
+              height="11"
+              viewBox="0 0 12 12"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="2 4 6 8 10 4"></polyline>
+            </svg>
+          </button>
+
+          <!-- Mobile Hamburger Menu Button -->
+          <button
+            class="menu-btn"
+            id="menuToggle"
+            aria-label="Buka navigasi menu"
+            aria-expanded="false"
+          >
+            ☰
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero" id="beranda">
+        <!-- Left Column: Copy Content -->
+        <div class="hero-copy">
+          <p
+            class="eyebrow"
+            data-id="SELAMAT DATANG DI PORTOFOLIO SAYA"
+            data-en="WELCOME TO MY PORTFOLIO"
+          >
+            <span class="eyebrow-line"></span>
+            <span class="eyebrow-text">SELAMAT DATANG DI PORTOFOLIO SAYA</span>
+          </p>
+
+          <h1
+            data-id="Hai, saya<br>Azhim Diendro<br>Setia Budi"
+            data-en="Hi, I'm<br>Azhim Diendro<br>Setia Budi"
+          >
+            Hai, saya<br />Azhim Diendro<br />Setia Budi
+          </h1>
+
+          <p
+            class="role"
+            data-id="Sarjana Sistem Informasi Telkom University Surabaya"
+            data-en="Information Systems Graduate, Telkom University Surabaya"
+          >
+            Sarjana Sistem Informasi Telkom University Surabaya
+          </p>
+
+          <p
+            class="school"
+            data-id="Analisis Bisnis TI | Analitik Data | Pengembangan Web | Tata Kelola TI"
+            data-en="IT Business Analysis | Data Analytics | Web Development | IT Governance"
+          >
+            Analisis Bisnis TI | Analitik Data |
+            Pengembangan Web | Tata Kelola TI
+          </p>
+
+          <p
+            class="intro"
+            data-id="Lulusan S1 Sistem Informasi dengan pengalaman dalam pengembangan aplikasi, pengolahan data, analisis proses bisnis, dan tata kelola teknologi informasi."
+            data-en="Information Systems graduate experienced in application development, data processing, business process analysis, and IT governance."
+          >
+            Lulusan S1 Sistem Informasi dengan pengalaman dalam pengembangan
+            aplikasi, pengolahan data, analisis proses bisnis, dan tata kelola
+            teknologi informasi.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="actions">
+            <!-- Hubungi Saya -->
+            <a
+              class="btn primary"
+              href="#kontak"
+              data-id="Hubungi Saya"
+              data-en="Contact Me"
+            >
+              <span class="btn-text">Hubungi Saya</span>
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="2" y1="8" x2="14" y2="8"></line>
+                <polyline points="9 3 14 8 9 13"></polyline>
+              </svg>
+            </a>
+
+            <!-- Lihat Portofolio -->
+            <a
+              class="btn ghost"
+              href="#pengalaman"
+              data-id="Lihat Portofolio"
+              data-en="View Portfolio"
+            >
+              <span class="btn-text">Lihat Portofolio</span>
+              <svg
+                width="13"
+                height="13"
+                viewBox="0 0 14 14"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="2.5 5 7 9.5 11.5 5"></polyline>
+              </svg>
+            </a>
+
+            <!-- Unduh CV -->
+            <a
+              class="btn ghost"
+              href="CV_AZHIM%20DIENDRO%20SETIA%20BUDI.pdf"
+              download
+              data-id="Unduh CV"
+              data-en="Download CV"
+            >
+              <span class="btn-text">Unduh CV</span>
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M8 2v8M4.5 7l3.5 3.5 3.5-3.5M2.5 13.5h11"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Portrait and Glowing Data Chart -->
+        <div class="hero-visual">
+          <img
+            class="portrait"
+            src="azhim.png"
+            alt="Azhim Diendro Setia Budi"
+          />
+          <div class="portrait-blend"></div>
+
+          <!-- Luminous Data Chart Graphic -->
+          <div class="chart-wrap" aria-hidden="true">
+            <svg
+              class="chart-svg"
+              viewBox="0 0 250 130"
+              fill="none"
+              style="width: 100%; height: 100%"
+            >
+              <defs>
+                <linearGradient id="chartBarGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#38cbf8" stop-opacity="0.95" />
+                  <stop offset="45%" stop-color="#0284c7" stop-opacity="0.75" />
+                  <stop offset="100%" stop-color="#034870" stop-opacity="0.2" />
+                </linearGradient>
+                <filter
+                  id="chartNeonGlow"
+                  x="-30%"
+                  y="-30%"
+                  width="160%"
+                  height="160%"
+                >
+                  <feGaussianBlur stdDeviation="3.5" result="blur" />
+                  <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+              </defs>
+
+              <!-- Rising Vertical Cyan Bars -->
+              <g fill="url(#chartBarGrad)">
+                <rect x="10" y="98" width="11.5" height="32" rx="3.5" />
+                <rect x="30" y="88" width="11.5" height="42" rx="3.5" />
+                <rect x="50" y="77" width="11.5" height="53" rx="3.5" />
+                <rect x="70" y="65" width="11.5" height="65" rx="3.5" />
+                <rect x="90" y="53" width="11.5" height="77" rx="3.5" />
+                <rect x="110" y="41" width="11.5" height="89" rx="3.5" />
+                <rect x="130" y="29" width="11.5" height="101" rx="3.5" />
+                <rect x="150" y="15" width="11.5" height="115" rx="3.5" />
+              </g>
+
+              <!-- Glowing Upward Trendline -->
+              <path
+                d="M-6 114 L15 104 L35 94 L55 83 L75 70 L95 58 L115 45 L135 32 L155 16 L182 -4"
+                stroke="#00e5ff"
+                stroke-width="4.5"
+                opacity="0.5"
+                filter="url(#chartNeonGlow)"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M-6 114 L15 104 L35 94 L55 83 L75 70 L95 58 L115 45 L135 32 L155 16 L182 -4"
+                stroke="#e0f9ff"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+
+              <!-- Glowing Vertex Circles -->
+              <g filter="url(#chartNeonGlow)">
+                <circle
+                  cx="15"
+                  cy="104"
+                  r="3.5"
+                  fill="#ffffff"
+                  stroke="#38cbf8"
+                  stroke-width="2"
+                />
+                <circle
+                  cx="55"
+                  cy="83"
+                  r="3.5"
+                  fill="#ffffff"
+                  stroke="#38cbf8"
+                  stroke-width="2"
+                />
+                <circle
+                  cx="95"
+                  cy="58"
+                  r="3.5"
+                  fill="#ffffff"
+                  stroke="#38cbf8"
+                  stroke-width="2"
+                />
+                <circle
+                  cx="135"
+                  cy="32"
+                  r="3.5"
+                  fill="#ffffff"
+                  stroke="#38cbf8"
+                  stroke-width="2"
+                />
+                <circle
+                  cx="155"
+                  cy="16"
+                  r="4"
+                  fill="#ffffff"
+                  stroke="#38cbf8"
+                  stroke-width="2"
+                />
+              </g>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tentang -->
+      <section class="section" id="tentang">
+        <div class="section-head"><span class="kicker">01 / About</span><h2 data-id="Tentang Saya" data-en="About Me">Tentang Saya</h2></div>
+        <p class="section-lead" data-id="Lulusan S1 Sistem Informasi Telkom University Surabaya dengan pengalaman dalam pengembangan aplikasi, pengolahan data, analisis proses bisnis, dan tata kelola teknologi informasi. Memiliki pengalaman kerja praktik dalam pengembangan aplikasi menggunakan PHP dan Laravel serta penelitian tata kelola TI menggunakan COBIT 2019 dan ISO/IEC 38500. Memiliki kemampuan analitis, problem solving, komunikasi, dan kerja sama." data-en="Information Systems graduate of Telkom University Surabaya with experience in application development, data processing, business process analysis, and IT governance. Hands-on internship experience building applications with PHP and Laravel, plus IT governance research using COBIT 2019 and ISO/IEC 38500. Strong analytical, problem-solving, communication, and teamwork skills.">Lulusan S1 Sistem Informasi Telkom University Surabaya dengan pengalaman dalam pengembangan aplikasi, pengolahan data, analisis proses bisnis, dan tata kelola teknologi informasi. Memiliki pengalaman kerja praktik dalam pengembangan aplikasi menggunakan PHP dan Laravel serta penelitian tata kelola TI menggunakan COBIT 2019 dan ISO/IEC 38500. Memiliki kemampuan analitis, problem solving, komunikasi, dan kerja sama.</p>
+        <h3 class="sub" data-id="Pendidikan" data-en="Education">Pendidikan</h3>
+        <div class="entry"><div class="entry-head"><h3>Telkom University Surabaya — S1 Sistem Informasi</h3><span class="date">Juli 2022 – Agustus 2026</span></div><p class="meta">IPK 3.46 / 4.00</p><ul class="list"><li>Lulus dengan predikat sangat memuaskan dalam masa studi reguler 4 tahun (2026).</li><li>Publikasi artikel ilmiah pada Jurnal Teknologi Informasi dan Ilmu Komputer yang terindeks Sinta 2 (2026).</li><li>Tugas Akhir: Perencanaan Tata Kelola Teknologi Informasi Diskominfo Kota Surabaya Menggunakan COBIT 2019 dan ISO/IEC 38500 untuk Meningkatkan Kinerja Layanan Teknologi Informasi (2026).</li></ul></div>
+      </section>
+
+      <!-- Pengalaman -->
+      <section class="section" id="pengalaman">
+        <div class="section-head"><span class="kicker">02 / Experience</span><h2 data-id="Pengalaman &amp; Proyek" data-en="Experience &amp; Projects">Pengalaman &amp; Proyek</h2></div>
+        <h3 class="sub" data-id="Pengalaman Kerja &amp; Penelitian" data-en="Work &amp; Research Experience">Pengalaman Kerja &amp; Penelitian</h3>
+        <div class="entry"><div class="entry-head"><h3>Pembangunan Aplikasi</h3></div><p class="meta">Dinas Ketahanan Pangan dan Pertanian Kota Surabaya · Kerja praktik</p><ul class="list"><li>Membangun 2 aplikasi, yaitu aplikasi kehadiran pegawai dan aplikasi perizinan OSS, menggunakan PHP dengan Framework Laravel.</li><li>Hasil perancangan aplikasi sesuai dengan proses bisnis dan kebutuhan pegawai.</li><li>Tampilan aplikasi sederhana dan mudah digunakan oleh pegawai.</li></ul></div>
+        <div class="entry"><div class="entry-head"><h3>Perancangan Tata Kelola Teknologi Informasi</h3></div><p class="meta">Dinas Komunikasi dan Informatika Kota Surabaya · Penelitian</p><ul class="list"><li>Memahami proses pengelolaan tata kelola TI melalui analisis dokumen alur kerja layanan TI.</li><li>Merancang tata kelola menggunakan Framework COBIT 2019 dan ISO 38500 untuk meningkatkan kinerja TI berdasarkan urgensi permasalahan.</li><li>Menentukan metode dan teori yang tepat untuk pengolahan dan analisis data agar kualitas penelitian layak dikaji.</li></ul></div>
+        <div class="entry"><div class="entry-head"><h3>Kasir dan Asisten Barbershop</h3></div><p class="meta">Mini Barbershop Gresik Menganti · Part time</p><ul class="list"><li>Mencatat transaksi modal, pemasukan, dan pengeluaran secara rapi di dalam buku.</li><li>Membantu melayani sekitar 30–60 pelanggan per hari dalam proses keramas selama periode Ramadan.</li><li>Bertanggung jawab menjaga kebersihan setelah potong rambut pelanggan.</li></ul></div>
+        <h3 class="sub" data-id="Proyek" data-en="Projects">Proyek</h3>
+        <div class="entry"><div class="entry-head"><h3>Aplikasi Kehadiran Pegawai</h3></div><p class="meta">PHP, Framework Laravel</p><ul class="list"><li>Mengembangkan aplikasi untuk mendukung pencatatan kehadiran pegawai berdasarkan kebutuhan proses bisnis.</li></ul></div>
+        <div class="entry"><div class="entry-head"><h3>Aplikasi Perizinan OSS</h3></div><p class="meta">PHP Native</p><ul class="list"><li>Mengembangkan aplikasi untuk mendukung pengelolaan data dan proses perizinan OSS.</li></ul></div>
+        <div class="entry"><div class="entry-head"><h3>Tata Kelola TI Diskominfo Kota Surabaya</h3></div><p class="meta">COBIT 2019, ISO/IEC 38500</p><ul class="list"><li>Menganalisis kondisi tata kelola TI dan menyusun rekomendasi berdasarkan hasil capability level.</li></ul></div>
+      </section>
+
+      <!-- Organisasi -->
+      <section class="section" id="organisasi">
+        <div class="section-head"><span class="kicker">03 / Organizations</span><h2 data-id="Organisasi &amp; Kepanitiaan" data-en="Organizations &amp; Committees">Organisasi &amp; Kepanitiaan</h2></div>
+        <ul class="timeline">
+          <li><span><strong>Humas</strong> · UKM Kewirausahaan</span><span class="date">Februari 2023</span></li>
+          <li><span><strong>Humas</strong> · UKM Kewirausahaan</span><span class="date">Februari 2024</span></li>
+          <li><span><strong>Humas</strong> · Kepanitiaan TUS Championship</span><span class="date">September 2024</span></li>
+        </ul>
+      </section>
+
+      <!-- Sertifikat & Pelatihan -->
+      <section class="section" id="sertifikasi">
+        <div class="section-head"><span class="kicker">04 / Training</span><h2 data-id="Sertifikat &amp; Pelatihan" data-en="Certificates &amp; Training">Sertifikat &amp; Pelatihan</h2></div>
+        <ul class="timeline">
+          <li><span><strong>Bootcamp Data Analyst Karirnex</strong> · PT Ebiz Karisma Internasional</span><span class="date">2026</span></li>
+        </ul>
+      </section>
+
+      <!-- Keahlian -->
+      <section class="section" id="keahlian">
+        <div class="section-head"><span class="kicker">05 / Skills</span><h2 data-id="Keahlian" data-en="Skills">Keahlian</h2></div>
+        <dl class="skill-list">
+          <div><dt data-id="Bahasa" data-en="Languages">Bahasa</dt><dd>Indonesia (Native), Inggris (Basic)</dd></div>
+          <div><dt data-id="Perangkat Lunak &amp; Teknologi" data-en="Software &amp; Technology">Perangkat Lunak &amp; Teknologi</dt><dd>Microsoft Office (Word, Excel, PowerPoint), Google Workspace, Canva, Visual Studio Code, Draw.io, Python, PHP, Laravel, MySQL, BigQuery, SQL, Power BI, COBIT 2019 Tools</dd></div>
+          <div><dt data-id="Keterampilan Profesional" data-en="Professional Skills">Keterampilan Profesional</dt><dd>Analisis Data, Pengembangan Aplikasi, Analisis Proses Bisnis, Tata Kelola Teknologi Informasi</dd></div>
+          <div><dt data-id="Keterampilan Pribadi" data-en="Soft Skills">Keterampilan Pribadi</dt><dd>Problem Solving, Kolaboratif, Komunikatif, Leadership, Manajemen Waktu, Adaptif, Teliti</dd></div>
+        </dl>
+      </section>
+
+      <!-- Kontak -->
+      <section class="section" id="kontak">
+        <div class="section-head"><span class="kicker">06 / Contact</span><h2 data-id="Mari Terhubung" data-en="Let's Connect">Mari Terhubung</h2></div>
+        <p class="section-lead" data-id="Tertarik berdiskusi, berkolaborasi, atau mengetahui lebih lanjut? Silakan hubungi saya." data-en="Interested in discussing, collaborating, or learning more? Feel free to get in touch.">Tertarik berdiskusi, berkolaborasi, atau mengetahui lebih lanjut? Silakan hubungi saya.</p>
+        <dl class="skill-list">
+          <div><dt>Email</dt><dd><a href="mailto:azhimdiendro2@gmail.com">azhimdiendro2@gmail.com</a></dd></div>
+          <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/azhim09/" target="_blank" rel="noopener">linkedin.com/in/azhim09</a></dd></div>
+          <div><dt>WhatsApp</dt><dd><a href="https://wa.me/6288989327059" target="_blank" rel="noopener">+62 889-8932-7059</a></dd></div>
+          <div><dt data-id="Lokasi" data-en="Location">Lokasi</dt><dd>Gresik, Jawa Timur, Indonesia</dd></div>
+        </dl>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      © <span id="year"></span> Azhim Diendro Setia Budi. All rights reserved.
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+      // Header background blur on scroll
+      const siteHeader = document.getElementById("siteHeader");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 40) {
+          siteHeader.classList.add("scrolled");
+        } else {
+          siteHeader.classList.remove("scrolled");
+        }
+      });
+
+      // Mobile Menu Toggle
+      const menuBtn = document.getElementById("menuToggle");
+      const navlinks = document.getElementById("navlinks");
+      menuBtn.addEventListener("click", () => {
+        const isOpen = navlinks.classList.toggle("open");
+        menuBtn.setAttribute("aria-expanded", String(isOpen));
+        menuBtn.textContent = isOpen ? "✕" : "☰";
+      });
+
+      // Close mobile menu on link click
+      document.querySelectorAll(".navlinks a").forEach((a) => {
+        a.addEventListener("click", () => {
+          navlinks.classList.remove("open");
+          menuBtn.setAttribute("aria-expanded", "false");
+          menuBtn.textContent = "☰";
+        });
+      });
+
+      // Dark / Light Theme Toggle
+      const themeBtn = document.getElementById("themeToggle");
+      const sunIcon = document.getElementById("sunIcon");
+      const moonIcon = document.getElementById("moonIcon");
+      themeBtn.addEventListener("click", () => {
+        const isLight = document.body.classList.toggle("light");
+        sunIcon.style.display = isLight ? "none" : "block";
+        moonIcon.style.display = isLight ? "block" : "none";
+      });
+
+      // Language Switcher (Indonesian / English)
+      let isEnglish = false;
+      const langToggle = document.getElementById("langToggle");
+      const langText = document.getElementById("langText");
+      langToggle.addEventListener("click", () => {
+        isEnglish = !isEnglish;
+        document.documentElement.lang = isEnglish ? "en" : "id";
+        langText.textContent = isEnglish ? "EN" : "ID";
+
+        document.querySelectorAll("[data-id][data-en]").forEach((el) => {
+          // If the element contains child span/svg, only update the text portion or dataset
+          const textSpan = el.querySelector(".btn-text, .eyebrow-text");
+          if (textSpan) {
+            textSpan.textContent = isEnglish ? el.dataset.en : el.dataset.id;
+          } else {
+            el.innerHTML = isEnglish ? el.dataset.en : el.dataset.id;
+          }
+        });
+      });
+
+      // Active Navigation Link Tracker
+      const sections = [...document.querySelectorAll("main section[id]")];
+      const navAnchors = document.querySelectorAll(".navlinks a");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const id = entry.target.id;
+              navAnchors.forEach((a) => {
+                const target = a.getAttribute("href").replace("#", "");
+                a.classList.toggle("active", target === id);
+              });
+            }
+          });
+        },
+        { rootMargin: "-30% 0px -55% 0px" },
+      );
+      sections.forEach((s) => observer.observe(s));
+
+      // Current Year in Footer
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
